@@ -1,0 +1,71 @@
+<div>
+    <div class="col-md-6 center-block no-float form-login padding_top">
+
+<%= form_for(@docente) do |f| %>
+  <% if @docente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@docente.errors.count, "error") %> prohibited this docente from being saved:</h2>
+
+      <ul>
+      <% @docente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cedula %><br>
+    <%= f.text_field :cedula %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= f.text_field :area %>
+  </div>
+  <div class="field">
+    <%= f.label :titulos %><br>
+    <%= f.text_area :titulos %>
+  </div>
+  <div class="field">
+    <%= f.label :cargo %><br>
+    <%= f.text_field :cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :colegio_id %><br>
+    <% if current_usuario.rol == "Administrador Colegio"%>
+    <%= f.text_field :colegio_id, :value=> current_usuario.nombre %>
+    <%else%>
+    <%= f.collection_select(:colegio_id, Colegio.all, :nombre, :nombre, :include_blank => "Por favor seleccione...") %>
+    <%end%>
+  </div>
+  <div class="actions">
+    <center>
+      <a><%= link_to '.', :back, :class=>" fa fa-arrow-circle-o-left fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+      <a><%= f.submit "Ingresar Datos Empleado", :class=>"btn btn-border-info btn-rounded btn-lg" %></a>
+    </center>
+  </div>
+<% end %>
+</div>
+</div>
+
+<script>
+  $(document).ready(function () {
+            $('select').material_select();
+        });
+</script>

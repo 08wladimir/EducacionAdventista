@@ -1,0 +1,60 @@
+<font face="comic sans ms"><h1 class="text-info">Crear Nuevo Administrador</h1></font>
+<div>
+    <div class="col-md-10 center-block no-float form-login padding_top">
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :usuario %><br />
+    <%= f.text_field :usuario %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :rol %><br>
+    <%= f.select :rol, ['Administrador Union', 'Administrador Campo', 'Administrador Colegio', 'Invitado'], :include_blank => "Por favor seleccione..."%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :foto %><br />
+    <%= f.file_field :foto %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> Caracteres como Mínimo)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <a><%= f.submit "  Crear", :class=>"btn btn-border-info btn-rounded btn-lg btn-block"%></a>
+  </div>
+  <% end %>
+
+
+</div>
+</div>
+
+<script>
+  $(document).ready(function () {
+            $('select').material_select();
+        });
+</script>

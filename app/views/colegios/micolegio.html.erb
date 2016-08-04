@@ -1,0 +1,72 @@
+<div class="col-md-10 center-block no-float">
+    <div>
+        <br>
+    <font face="comic sans ms"><h1 class="text-info text-center"><%= current_usuario.nombre %></h1></font>
+    </div>
+    <div class="text-center">
+
+        <% i = 0 %>
+        <% @colegios.each do |colegio| %>
+            <% if colegio.nombre == current_usuario.nombre %>
+            <div class="col-md-5">
+                <div class="card-group">
+                    <div class="card">
+                    <img class="img-fluid" src="<%= colegio.logo.url(:croppable) %>" alt="Card image cap">
+                        <div class="card-block">
+                            <font face="Times New Roman"><h4 class="card-title text-info"><%= colegio.nombre %></h4></font>
+                            <p class="card-text">
+                                <b>Telefono:</b> <%= colegio.telefono %><br>
+                                <b>Campo Local:</b> <%= colegio.campoLocal %><br>
+                                <b>Union:</b> <%= colegio.union %><br>
+                                <b>Pais:</b> <%= colegio.pais %><br> 
+                                <%= link_to '  Editar', edit_colegio_path(colegio), :class=> "fa fa-pencil btn btn-border-info" %> |
+                                <%= link_to '  Ver', colegio, :class=> "fa fa-eye btn btn-border-info" %><br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-md-offset-2">
+                <div class="card-group">
+                    <div class="card">
+                        <img class="img-fluid" src="http://icon-icons.com/icons2/343/PNG/512/Teachers_35749.png" alt="Card image cap">
+                        <div class="card-block">
+                            <center><font face="Times New Roman"><h4 class="card-title text-info">Empleados</h4></font></center>
+                            <%= link_to '  Nuevo', new_docente_path(@user), :class=> "fa fa-pencil btn btn-border-info" %> | 
+                            <%= link_to '  Ver', docentes_path(@user), :class=> "fa fa-eye btn btn-border-info" %><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% i = 1 %>
+            <% end %>
+        <% end %>    
+            <% if i == 0 %>
+            <div class="col-md-5">
+                <div class="card-group">
+                    <div class="card">
+                        <div class="card-block">
+                            <font face="Times New Roman"><h4 class="card-title text-info">Ingrese los Datos de su Colegio</h4></font>
+                            <p class="card-text">
+                                <%= link_to ' Datos Colegio', new_colegio_path, :class=> "fa fa-plus-circle btn btn-border-info" %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-md-offset-2">
+                <div class="card-group">
+                    <div class="card">
+                        <img class="img-fluid" src="http://icon-icons.com/icons2/343/PNG/512/Teachers_35749.png" alt="Card image cap">
+                        <div class="card-block">
+                            <center><font face="Times New Roman"><h4 class="card-title text-info">Sin Colegio Para Empleados</h4></font></center>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%end%>
+        
+    </div>
+
+</div>

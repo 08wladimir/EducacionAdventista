@@ -1,0 +1,31 @@
+<font face="comic sans ms"><h1 class="text-info">Campos</h1></font>
+
+<div class="col-md-10 center-block no-float form-login padding_top">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Union</th>
+      <th>Campo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @uni_asos.each do |uni_aso| %>
+      <tr>
+        <td><%= uni_aso.Union %></td>
+        <td><%= uni_aso.Campo %></td>
+        <td><%= link_to '', uni_aso, :class=>"fa fa-eye fa-1x" %></td>
+        <td><%= link_to '', edit_uni_aso_path(uni_aso), :class=>"fa fa-pencil fa-1x" %></td>
+        <td><%= link_to '', uni_aso, :class=>"fa fa-trash-o fa-1x", method: :delete, data: { confirm: '¿Esta Seguro que desea Eliminar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<div class="actions">
+  <a><%= link_to 'Nuevo Campo', new_uni_aso_path, :class=>" fa fa-plus-circle fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+</div>

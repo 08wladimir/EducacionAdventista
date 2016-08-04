@@ -1,0 +1,99 @@
+  <style>
+      header, main, footer, body {
+        padding-top: 6%;
+    }
+  </style>
+
+<!-- SideNav slide-out button -->
+    <a href="#" data-activates="slide-out" class="navbar-brand button-collapse"></i></a>
+    <!--/. SideNav slide-out button -->
+
+    <!-- Sidebar navigation -->
+    <ul id="slide-out" class="side-nav admin-side-nav dark-side-nav">
+        <!-- Logo -->
+        <div class="logo-wrapper">
+            <img src="http://0.gravatar.com/avatar/60efa32c26a19f3ed2e42798afb705ba?s=100&d=mm&r=g" class="img-responsive img-circle">
+            <div class="rgba-stylish-strong">
+                <p class="user white-text"> <%= current_usuario.nombre %>
+                    <br> <%= current_usuario.email %>
+                </p>
+            </div>
+        </div>
+        <!--/. Logo -->
+        
+        <ul class="collapsible collapsible-accordion">
+            <!-- Menú Administrador -->
+        <% if current_usuario.rol == "Administrador" %>
+            <span><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, welcome_index_path(@user) %></span>
+            <span><%= link_to '<i class="fa fa-users"></i> Usuario'.html_safe, usuarios_path %></span>
+            <span><%= link_to '<i class="fa fa-ra"></i> Campos'.html_safe, uni_asos_path(@user) %></span>
+            <span><%= link_to '<i class="fa fa-graduation-cap"></i> Colegio'.html_safe, colegios_path(@user) %></span>
+            <span><%= link_to '<i class="fa fa-male"></i><i class="fa fa-female"></i> Empleado Colegio'.html_safe, docentes_path(@user) %></span>
+            <span><%= link_to '<i class="fa fa-sign-out"></i> Salir'.html_safe, destroy_usuario_session_path, method: :delete %></span>
+        <%end%>
+        
+        <!-- Menú Unión -->
+        <% if current_usuario.rol == "Administrador Union" %>
+            <span><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, welcome_index_path(@user) %></span>
+            <span><%= link_to '<i class="fa fa-users"></i> Usuario'.html_safe, usuarios_path %></span>
+            <span><%= link_to '<i class="fa fa-sign-out"></i> Salir'.html_safe, destroy_usuario_session_path, method: :delete %></span>
+        <%end%>
+        <!-- Menú Campo -->
+        <% if current_usuario.rol == "Administrador Campo" %>
+            <span><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, welcome_index_path(@user) %></span>
+            <span><%= link_to '<i class="fa fa-users"></i> Usuario'.html_safe, usuarios_path %></span>
+            <span><%= link_to '<i class="fa fa-sign-out"></i> Salir'.html_safe, destroy_usuario_session_path, method: :delete %></span>
+        <%end%>
+        
+        <!-- Menú Colegio -->
+        <% if current_usuario.rol == "Administrador Colegio" %>
+        <span><%= link_to '<i class="fa fa-graduation-cap"></i> Mi Colegio'.html_safe, colegios_micolegio_path(@user) %></span>
+            <span><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, welcome_index_path(@user) %></span>
+            <span><%= link_to '<i class="fa fa-male"></i><i class="fa fa-female"></i> Empleado Colegio'.html_safe, docentes_path(@user) %></span>
+            <span><%= link_to '<i class="fa fa-sign-out"></i> Salir'.html_safe, destroy_usuario_session_path, method: :delete %></span>
+        <%end%>
+        
+        <!-- Menú Invitado -->
+        <% if current_usuario.rol == "Invitado" %>
+            <span><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, welcome_index_path(@user) %></span>
+            <span><%= link_to '<i class="fa fa-sign-out"></i> Salir'.html_safe, destroy_usuario_session_path, method: :delete %></span>
+        <%end%>
+        
+        </ul>
+    </ul>
+    <!--/. Sidebar navigation -->
+
+    <!--Navbar-->
+    <nav class="double-navbar navbar navbar-fixed-top unique-color z-depth-1" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header pull-left">
+                <!-- SideNav slide-out button -->
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-th-list"></i></a>
+                <!--/. SideNav slide-out button -->
+
+            </div>
+            <ul class="list-inline pull-right text-center  color-blanco">
+                <li class="waves-effect waves-light" data-toggle="modal" data-target="#contact-form"><i class="fa fa-cog fa-spin color-blanco"></i><br><span><%= link_to "Editar Perfil", edit_usuario_registration_path(current_usuario), :class => "color-blanco" %></span></a></li>
+                <li class="waves-effect waves-light" data-toggle="modal" data-target="#contact-form"><i class="fa fa-sign-out color-blanco"></i><br><span><%= link_to "Cerrar Sesión", destroy_usuario_session_path, method: :delete, :class => "color-blanco" %></span></a></li>
+                
+            </ul>
+            <center><div class="no-padding text-center">
+                <div class="box">
+                <a href="https://educacion-adventista-wladimirpalencia.c9users.io">
+                    <img height="70" src="/LogoIASD.png" alt="...">
+                </a>
+                </div>
+            </div></center>
+            <!--/. Navbar Icons -->
+        </div>
+
+    </nav>
+    <!--/.Navbar-->
+    
+    
+    <script>
+ // Initialize collapse button
+  $(".button-collapse").sideNav();
+  // Initialize collapsible 
+  $('.collapsible').collapsible();
+    </script>

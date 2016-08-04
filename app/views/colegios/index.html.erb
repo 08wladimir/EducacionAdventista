@@ -1,0 +1,35 @@
+<font face="comic sans ms"><h1 class="text-info">Colegios</h1></font>
+
+<div class="col-md-10 center-block no-float form-login padding_top">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th>Telefono</th>
+      <th>Modalidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @colegios.each do |colegio| %>
+      <tr>
+        <td><%= colegio.nombre %></td>
+        <td><%= colegio.direccion %></td>
+        <td><%= colegio.telefono %></td>
+        <td><%= colegio.modalidad %></td>
+        <td><%= link_to '', colegio, :class=>"fa fa-eye fa-1x" %></td>
+        <td><%= link_to '', edit_colegio_path(colegio), :class=>"fa fa-pencil fa-1x" %></td>
+        <td><%= link_to '', colegio, :class=>"fa fa-trash-o fa-1x", method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<div class="actions">
+  <a><%= link_to 'Colegio', new_colegio_path, :class=>" fa fa-plus-circle fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+</div>

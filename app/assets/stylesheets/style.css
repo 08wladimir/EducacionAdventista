@@ -1,0 +1,41 @@
+@media screen and (max-device-width : 550px) {
+        header, main, footer, body {
+          padding-top: 10% !important;
+        }
+    }
+
+    
+.color-blanco{
+    color: #fff;
+}
+
+.no-float{
+    float: none;
+}
+
+.text-estilo{
+    Font-family: "times new roman";
+}
+
+.form-login {
+  box-sizing: border-box;
+  margin: 8% auto 0;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  padding-bottom: 40px;
+  border-radius: 3px;
+  padding: 30px;
+}
+
+
+.fondo-login{
+    background-image: url(http://www.casaetc.cl/cs/wp-content/uploads/2014/03/3-1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color:#464646;
+}
+
+.text-color{
+    color: #000000;
+}

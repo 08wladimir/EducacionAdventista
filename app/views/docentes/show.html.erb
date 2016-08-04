@@ -1,0 +1,65 @@
+<div class="col-md-10 center-block no-float form-login padding_top">
+
+<div class="panel panel-info">
+  <div class="panel-heading"><center>Uniones y Campos</center></div>
+  
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Cedula:</div>
+      <div class="col-md-8"><%= @docente.cedula %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Nombre:</div>
+      <div class="col-md-8"><%= @docente.nombre %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Apellido:</div>
+      <div class="col-md-8"><%= @docente.apellido %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Telefono:</div>
+      <div class="col-md-8"><%= @docente.telefono %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Email:</div>
+      <div class="col-md-8"><%= @docente.email %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Area:</div>
+      <div class="col-md-8"><%= @docente.area %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Tirulos:</div>
+      <div class="col-md-8"><%= @docente.titulos %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Cargo:</div>
+      <div class="col-md-8"><%= @docente.cargo %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Colegio:</div>
+      <div class="col-md-8"><%= @docente.colegio_id %></div>
+    </div>
+  </div>
+</div>
+
+<div class="actions">
+  <a><%= link_to 'Back', docentes_path(@user), :class=>" fa fa-arrow-circle-o-left fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+  <a><%= link_to 'Mi Colegio', colegios_micolegio_path, :class=>" fa fa-graduation-cap fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+</div>

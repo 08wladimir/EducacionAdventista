@@ -1,0 +1,79 @@
+<div>
+    <div class="col-md-6 center-block no-float form-login padding_top">
+      <%= form_for(@colegio) do |f| %>
+  <% if @colegio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@colegio.errors.count, "error") %> prohibited this colegio from being saved:</h2>
+
+      <ul>
+      <% @colegio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, :value=> current_usuario.nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :logo %><br>
+    <h1 class="text-danger btn btn-border-info"><%= f.file_field :logo %></h1>
+  </div>
+  <div class="field">
+    <%= f.label :cursoMin %><br>
+    <%= f.text_field :cursoMin %>
+  </div>
+  <div class="field">
+    <%= f.label :cursoMax %><br>
+    <%= f.text_field :cursoMax %>
+  </div>
+  <div class="field">
+    <%= f.label :modalidad %><br>
+    <%= f.text_field :modalidad %>
+  </div>
+  <div class="field">
+    <%= f.label :ubicacion %><br>
+    <%= f.text_field :ubicacion %>
+  </div>
+  <div class="field">
+    <%= f.label :union %><br>
+    <h1 class="text-danger"><%= f.select :union, ['Norte', 'Sur'], :include_blank => "Por favor seleccione..." %></h1>
+  </div>
+  
+  <div class="field">
+    <%= f.label :campoLocal %><br>
+    <h1 class="text-danger"><%= f.collection_select(:campoLocal, UniAso.all, :Campo, :Campo, :include_blank => "Por favor seleccione...") %></h1>
+  </div>
+  <div class="field">
+    <%= f.label :pais %><br>
+    <%= f.text_field :pais %>
+  </div>
+  <div class="actions">
+    <center>
+      <a><%= link_to '.', :back, :class=>" fa fa-arrow-circle-o-left fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+      <a><%= f.submit "Ingresar Datos Colegio", :class=>"btn btn-border-info btn-rounded btn-lg" %></a>
+    </center>
+  </div>
+<% end %>
+</div>
+</div>
+
+<script>
+  $(document).ready(function () {
+            $('select').material_select();
+        });
+</script>

@@ -1,0 +1,41 @@
+<div>
+    <div class="col-md-6 center-block no-float form-login padding_top">
+      <%= form_for(@uni_aso) do |f| %>
+  <% if @uni_aso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@uni_aso.errors.count, "error") %> prohibited this uni_aso from being saved:</h2>
+
+      <ul>
+      <% @uni_aso.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Union %><br>
+    <%= f.text_field :Union %>
+  </div>
+  <div class="field">
+    <%= f.label :Campo %><br>
+    <%= f.text_field :Campo %>
+  </div>
+  <div class="actions">
+    <center>
+      <a><%= link_to '.', :back, :class=>" fa fa-arrow-circle-o-left fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+      <a><%= f.submit "Ingresar Datos", :class=>"btn btn-border-info btn-rounded btn-lg" %></a>
+    </center>
+  </div>
+<% end %>
+</div>
+</div>
+
+
+<!--%= f.collection_select(:office_id, Office.all, :id, :nombre_nit_sucursal, :include_blank => "Por favor seleccione...") %>
+-->
+<script>
+  $(document).ready(function () {
+            $('select').material_select();
+        });
+</script>

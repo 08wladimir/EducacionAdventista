@@ -1,0 +1,36 @@
+<font face="comic sans ms"><h1 class="text-info">Empleados</h1></font>
+
+<div class="col-md-10 center-block no-float form-login padding_top">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Telefono</th>
+      <th>Cargo</th>
+      <th>Colegio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @docentes.each do |docente| %>
+      <tr>
+        <td><%= docente.nombre %></td>
+        <td><%= docente.apellido %></td>
+        <td><%= docente.telefono %></td>
+        <td><%= docente.cargo %></td>
+        <td><%= docente.colegio_id %></td>
+        <td><%= link_to '', docente, :class=>"fa fa-eye fa-1x" %></td>
+        <td><%= link_to '', edit_docente_path(docente), :class=>"fa fa-pencil fa-1x" %></td>
+        <td><%= link_to '', docente, :class=>"fa fa-trash-o fa-1x", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<div class="actions">
+  <a><%= link_to 'Nuevo Empleado', new_docente_path, :class=>" fa fa-plus-circle fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+</div>

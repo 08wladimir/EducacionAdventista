@@ -1,0 +1,63 @@
+<div>
+    <div class="col-md-6 center-block no-float form-login padding_top">
+      <%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this uni_aso from being saved:</h2>
+
+      <ul>
+      <% @users.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :usuario %><br />
+    <%= f.text_field :usuario %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :foto %><br />
+    <%= f.file_field :foto %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+ 
+  <div class="actions">
+    <center>
+      <a><%= link_to '.', :back, :class=>" fa fa-arrow-circle-o-left fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+      <a><%= f.submit "Ingresar Datos", :class=>"btn btn-border-info btn-rounded btn-lg" %></a>
+    </center>
+  </div>
+<% end %>
+</div>
+</div>
+
+
+<!--%= f.collection_select(:office_id, Office.all, :id, :nombre_nit_sucursal, :include_blank => "Por favor seleccione...") %>
+-->
+<script>
+  $(document).ready(function () {
+            $('select').material_select();
+        });
+</script>

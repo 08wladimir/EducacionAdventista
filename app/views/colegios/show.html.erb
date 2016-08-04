@@ -1,0 +1,124 @@
+<div class="col-md-10 center-block no-float form-login padding_top">
+
+<div class="panel panel-info">
+  <div class="panel-heading"><center><%= @colegio.nombre %></center></div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="text-center">
+          <header class="background-cover" style="background:url(<%= @colegio.logo.url(:medium) %>);top:0px;left:0px;width:100%;height:400px;background-size: cover;">
+          </header>
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Direccion:</div>
+      <div class="col-md-8"><%= @colegio.direccion %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Telefono:</div>
+      <div class="col-md-8"><%= @colegio.telefono %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Url:</div>
+      <div class="col-md-8"><%= link_to @colegio.url, @colegio.url, :target => '_blank' %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Curso Minimo:</div>
+      <div class="col-md-8"><%= @colegio.cursoMin %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Curso Maximo:</div>
+      <div class="col-md-8"><%= @colegio.cursoMax %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Modalidad:</div>
+      <div class="col-md-8"><%= @colegio.modalidad %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Ubicacion:</div>
+      <div class="col-md-8"><%= @colegio.ubicacion %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Campo Local:</div>
+      <div class="col-md-8"><%= @colegio.campoLocal %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Union:</div>
+      <div class="col-md-8"><%= @colegio.union %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Pais:</div>
+      <div class="col-md-8"><%= @colegio.pais %></div>
+    </div>
+  </div>
+</div>
+
+<div class="actions">
+  <a><%= link_to '  Back', :back, :class=>" fa fa-arrow-circle-o-left fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+  <a><%= link_to '  Home', welcome_index_path, :class=>" fa fa-home fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+  <button class="fa fa-list fa-2x btn btn-border-info btn-rounded btn-lg" data-toggle="modal" data-target=".bd-example-modal-lg">Listar Docentes</button>
+</div>
+
+</div>
+
+
+  <!-- Large modal -->
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+        <font face="comic sans ms"><h1 class="text-info">Empleados</h1></font>
+        
+        <div class="col-md-10 center-block no-float form-login padding_top">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Telefono</th>
+              <th>Cargo</th>
+              <th>Colegio</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @listadocente.each do |docente| %>
+              <tr>
+                <td><%= docente.nombre %></td>
+                <td><%= docente.apellido %></td>
+                <td><%= docente.telefono %></td>
+                <td><%= docente.cargo %></td>
+                <td><%= docente.colegio_id %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </div>
+        <br>
+      
+    </div>
+  </div>
+</div>

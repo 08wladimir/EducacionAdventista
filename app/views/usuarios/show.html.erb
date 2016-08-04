@@ -1,0 +1,36 @@
+<div class="col-md-10 center-block no-float form-login padding_top">
+
+<div class="panel panel-info">
+  <div class="panel-heading"><center>Usuario</center></div>
+  
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Nombre:</div>
+      <div class="col-md-8"><%= @user.nombre %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Correo:</div>
+      <div class="col-md-8"><%= @user.email %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Usuario:</div>
+      <div class="col-md-8"><%= @user.usuario %></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">Rol:</div>
+      <div class="col-md-8"><%= @user.rol %></div>
+    </div>
+  </div>
+</div>
+
+<div class="actions">
+  <a><%= link_to 'Back', :back, :class=>" fa fa-arrow-circle-o-left fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
+</div>
+
+</div>

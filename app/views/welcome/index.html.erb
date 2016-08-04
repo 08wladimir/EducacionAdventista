@@ -1,0 +1,27 @@
+<div class="col-md-10 center-block no-float">
+    
+    <div class="animated tada">
+        <br>
+    <font face="comic sans ms"><h1 class="text-info text-center">Bienvenido <%= current_usuario.nombre %></h1></font>
+    </div>
+
+<% @colegios.each do |colegio| %>
+    <div class="col-md-4">
+        <div class="card-group">
+            <div class="card">
+            <img class="img-fluid" src="<%= colegio.logo.url(:croppable) %>" alt="Card image cap">
+                <div class="card-block">
+                    <font face="Times New Roman"><h4 class="card-title text-info"><%= colegio.nombre %></h4></font>
+                    <p class="card-text">
+                        <b>Telefono:</b> <%= colegio.telefono %><br>
+                        <b>Campo Local:</b> <%= colegio.campoLocal %><br>
+                        <b>Union:</b> <%= colegio.union %><br>
+                        <b>Pais:</b> <%= colegio.pais %><br>
+                        <%= link_to '  Ver', colegio, :class=> "fa fa-eye btn btn-border-info" %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>

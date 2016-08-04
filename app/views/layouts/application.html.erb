@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adventista</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<% if usuario_signed_in? %>
+<body>
+  <div class="text-center">
+  <% if notice %>
+  <div class="notice">
+  <script>
+    toastr["success"](null, 'Sesión')
+
+    toastr.options = {
+      "closeButton": false,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toast-top-center",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
+  </div>
+  <% end %>
+  
+  <% if alert %>
+  <div class="alert">
+  <script>
+    toastr["error"](null, 'Sesión')
+
+    toastr.options = {
+      "closeButton": false,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toast-top-center",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
+  </div>
+  <% end %>
+  </div>
+</body>
+<%= render "layouts/menus" %>
+    <%= yield %>
+  <% else %>
+  <body class="fondo-login">
+      <%= yield %>
+  <% end %>
+  </body>
+  
+</html>

@@ -1,0 +1,20 @@
+
+<font face="comic sans ms"><h1 class="text-info">¿Olvidó Su Contraseña?</h1></font>
+<div class="col-md-10 center-block no-float form-login padding_top">
+  
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+  
+    <div class="input-field">
+      <label><i class="fa fa-envelope-o fa-2x"></i> Email</label>
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+    
+    <div class="actions">
+      <%= f.submit "Enviar Link para recuperar Contraseña", :class=>"btn btn-border-info btn-rounded btn-lg" %>
+    </div>
+  <% end %>
+  
+</div>
+
+<a><%= link_to '', :back, :class=>" fa fa-arrow-circle-o-left fa-2x btn btn-border-info btn-rounded btn-lg" %></a>
